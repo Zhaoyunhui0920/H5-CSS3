@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>xueli01-biaodan</title>
+    <style>
+        input{
+            width:270px;
+        }
+        #star{
+            color:red;
+        }
+        legend{
+            font-size: 20px;
+            color:red;
+        }
+        fieldset{
+            width:290px;
+        }
+        #word{
+            line-height: 25px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>学生信息</h1>
+    <br/>
+    <fieldset>
+		<legend width=200px>学生档案</legend>
+		<form id="testform" method="get" action="#S">	
+		<span id="word">姓名：</span><br/>
+        <input type="text" name="name1" required placeholder="请输入姓名" autofocus="autofocus" autocomplete="off"/>&nbsp;<span id="star">*</span>
+        <br/>
+        <span id="word">学号：</span><br/>
+        <input type="text" name="name2" required placeholder="请输入学号" autofocus="autofocus" autocomplete="off"/>&nbsp;<span id="star">*</span>
+        <br/>
+        <span id="word">手机号码：</span><br/>
+        <input type="text" name="name3" required placeholder="请输入手机号码" autofocus="autofocus" autocomplete="off"/>&nbsp;<span id="star">*</span>
+        <br/>
+        <span id="word">邮箱地址：</span><br/>
+        <input type="text" name="name4" required placeholder="请输入邮箱地址" autofocus="autofocus" autocomplete="off"/>&nbsp;<span id="star">*</span>
+        <br/>
+        <span id="word">录取学校：</span>
+        <br/>
+        <input type="search" name="sea1" list="names"/>
+		<datalist id="names">
+			<option>河北师范大学</option>
+			<option>河北科技大学</option>
+			<option>河北经贸大学</option>
+			<option>南开大学</option>
+			<option>中山大学</option>
+        </datalist>
+        <br/>
+        <span id="word">入学成绩：</span><br/>
+        <input type="text" name="grade1"/>
+        <br/>
+        <span id="word">入学时间：</span><br/>
+        <input type="date" name="date1"/>
+        <br/>
+        <br/>
+        <input type="submit" value="提交"/>	
+			<br/>
+		</form>
+		
+    </fieldset>
+    <script>
+        // var input = document.getElementsByTagName('input');
+        // var i = input.style;
+        // i.width = '500px';
+    </script>
+    
+</body>
+</html>
