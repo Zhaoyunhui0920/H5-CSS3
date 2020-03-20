@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web存储</title>
+    <style>
+        fieldset{
+            width:350px;
+            position: relative;
+            left: 400px;
+        }
+        legend{
+            color:red;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .skin{
+            width:350px;
+            height:50px;
+            border:solid 1px gray;
+        }
+        li{
+            width:12px;
+            height:15px;
+            list-style: none;
+            display: inline-block;
+            margin-left:3px;
+            /* padding: 3px; */
+            position: relative;
+            left:-40px;
+            margin-top:20px;          
+        }
+        .skin_0{
+            background-color: rgb(161, 160, 160);       
+        }
+        .skin_1{
+            background-color: rgb(192, 34, 192);
+        }
+        .skin_2{
+            background-color: pink;
+        }
+        .skin_3{
+            background-color: rgb(0, 247, 255);            
+        }
+        .skin_4{
+            background-color: yellow;           
+        }
+        .skin_5{
+            background-color: rgb(100, 248, 100);           
+        }
+        #text{
+            margin: 10px;
+            /* background-color: rgb(172, 169, 169); */
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>网页换肤</legend>
+        <ul class="skin">
+            <li class="skin_0" id="selected" title="灰色"></li>
+            <li class="skin_1" title="紫色"></li>
+            <li class="skin_2" title="红色"></li>
+            <li class="skin_3" title="天蓝色"></li>
+            <li class="skin_4" title="橙色"></li>
+            <li class="skin_5" title="淡绿色"></li>
+        </ul>
+        <div id="text" class="skin_0">
+                LocalStorage将数据保存在客户端本地的硬件设置中，及时浏览器关闭了，该数据依然存在，下次打开浏览器访问网站时依然可以继续使用。
+        </div>
+    </fieldset>
+    <script>
+            var li = document.getElementsByTagName("li");
+            var text = document.getElementById("text");
+            window.onload = function(){
+                var storage = window.localStorage;
+                var color = storage.localColor;
+                text.className = color;
+                storage.bottom = 10 + "px";
+                var bottom = storage.bottom;
+                for(var i = 0;i < li.length;i++){
+                    if(text.className == li[i].className) {
+                        li[i].style.bottom = bottom;
+                    }
+                    li[i].onclick = function() {
+                        this.style.bottom = bottom;
+                        text.className = this.className;
+                        storage.localColor = this.className;
+                        for (var j = 0;j < li.length;j++) {
+                            if (li[j] != this) {
+                                li[j].style.bottom = 0 + "px";
+                            }
+                        }
+                    }
+                }   
+            }
+    </script>
+</body>
+</html>
